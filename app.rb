@@ -26,14 +26,13 @@ class App < Sinatra::Base
     number2 = params[:number2].to_i
     operation.downcase
     if operation == 'add'
-      answer = number1 + number2
+      (number1 + number2).to_s
     elsif operation == 'subtract'
-      answer = number1 - number2
+      (number1 - number2).to_s
     elsif operation == 'multiply'
-      answer = number1 * number2
+      (number1 * number2).to_s
     elsif operation == 'divide'
-      answer = number1 / number2
+      (number1 / number2).to_s
     end 
-    answer.to_s
   end 
 end
