@@ -33,20 +33,33 @@ class App < Sinatra::Base
   end
 
   get '/:operation/:number1/:number2' do
-    # raise params.inspect
-    opp = params[:operation]
-    num1 = params[:number1].to_i
-    num2 = params[:number2].to_i
-    # raise [opp,num1,num2].inspect
+    # # raise params.inspect
+    # opp = params[:operation]
+    # num1 = params[:number1].to_i
+    # num2 = params[:number2].to_i
+    # # raise [opp,num1,num2].inspect
 
-    if opp == "add"
-      "#{num1+num2}"
-    elsif opp == "multiply"
-      "#{num1*num2}"
-    elsif opp == "subtract"
-      "#{num1-num2}"
-    elsif opp == "divide"
-      "#{num1/num2}"
+    # if opp == "add"
+    #   "#{num1+num2}"
+    # elsif opp == "multiply"
+    #   "#{num1*num2}"
+    # elsif opp == "subtract"
+    #   "#{num1-num2}"
+    # elsif opp == "divide"
+    #   "#{num1/num2}"
+    # else
+    #   "error"
+    # end
+
+    case params[:operation]
+    when "add"
+      "#{params[:number1].to_i+params[:number2].to_i}"
+    when "subtract"
+      "#{params[:number1].to_i-params[:number2].to_i}"
+    when "multiply"
+      "#{params[:number1].to_i*params[:number2].to_i}"
+    when "divide"
+      "#{params[:number1].to_i/params[:number2].to_i}"
     else
       "error"
     end
